@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, ReactNode, useState } from "react";
 import { Popover, Transition } from '@headlessui/react'
 
 
@@ -20,15 +20,14 @@ let FB = window.ethereum;
 
 const App: React.FunctionComponent = () => {
 
+  const [token, setToken] = React.useState(null);
   const [clickedButton, setClickedButton] = useState('');
   const [currentAccount, setCurrentAccount] = useState("");
 
-  const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-    const button: HTMLButtonElement = event.currentTarget;
-    setClickedButton(button.name);
-  };
+  const fakeAuth = () =>
+    new Promise((resolve) => {
+        setTimeout(() => resolve('2342f2f1d131rf12'), 250);
+  });
 
   const connectWallet = async (event: React.MouseEvent<HTMLButtonElement>) => {
     try {
@@ -47,6 +46,33 @@ const App: React.FunctionComponent = () => {
       console.log(error)
     }
   }
+
+  const checkIfWalletIsConnected = async () => {
+        try {
+            const { ethereum } = window;
+
+            if (!ethereum) {
+                console.log("Make sure you have metamask!");
+                return;
+            } else {
+                console.log("We have the ethereum object", ethereum);
+            }
+
+            const accounts = await ethereum.request({ method: "eth_accounts" });
+
+            if (accounts.length !== 0) {
+                const account = accounts[0];
+                console.log("Found an authorized account:", account);
+                setCurrentAccount(account)
+                const token = await fakeAuth();
+                //setToken(token);
+            } else {
+                console.log("No authorized account found")
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
 
@@ -144,7 +170,7 @@ const App: React.FunctionComponent = () => {
                   </button>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <button onClick={buttonHandler} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10" name="button 1">
+                  <button onClick={connectWallet} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10" name="button 1">
                     Metaverse
                   </button>
                 </div>
