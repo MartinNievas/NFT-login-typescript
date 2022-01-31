@@ -11,6 +11,7 @@ const navigation = [
 const Metaverse: React.FC = (): JSX.Element => {
   return (
     <>
+     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           <svg
@@ -94,7 +95,7 @@ const Metaverse: React.FC = (): JSX.Element => {
                 <span className="block xl:inline">techology</span>{' '}
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                We are the team of talented developer making metaverse accesible to everyone
+                Welcome to the Metaverse
               </p>
             </div>
           </main>
@@ -107,6 +108,7 @@ const Metaverse: React.FC = (): JSX.Element => {
           alt=""
         />
       </div>
+    </div>
     </>
   );
 };

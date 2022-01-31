@@ -1,5 +1,6 @@
 import React from "react";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {Navigate, useRoutes} from 'react-router-dom';
 import Home from "./containers/Home";
 import Metaverse from './containers/Metaverse'
 
@@ -11,19 +12,16 @@ declare global {
 
 let FB = window.ethereum;
 
-const App: React.FunctionComponent = () => {
+const App: React.FC = (): JSX.Element => {
 
-  return (
-     <div className="relative bg-white overflow-hidden">
+  const mainRoutes = [
+  { path: '/', element: <Home />},
+  { path: '/metaverse', element: <Metaverse />},
+  ];
 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/metaverse" element={<Metaverse/>} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+  const routing = useRoutes(mainRoutes);
+
+  return <>{routing}</>;
 }
 
 export default App;
