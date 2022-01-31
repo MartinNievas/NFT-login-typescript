@@ -8,7 +8,7 @@ const navigation = [
 ]
 
 
-const Home: React.FC = (): JSX.Element => {
+const Metaverse: React.FC = (): JSX.Element => {
   return (
     <>
       <div className="max-w-7xl mx-auto">
@@ -96,18 +96,6 @@ const Home: React.FC = (): JSX.Element => {
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 We are the team of talented developer making metaverse accesible to everyone
               </p>
-              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div className="rounded-md shadow">
-                  <button onClick={connectWallet} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10" name="button 1">
-                    Connect Metamask
-                  </button>
-                </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <button onClick={connectWallet} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10" name="button 1">
-                    Metaverse
-                  </button>
-                </div>
-              </div>
             </div>
           </main>
         </div>
@@ -123,4 +111,4 @@ const Home: React.FC = (): JSX.Element => {
   );
 };
 
-export default Home;
+export default Metaverse;

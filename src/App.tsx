@@ -1,12 +1,7 @@
-import React, { Fragment, ReactNode, useState } from "react";
-import { Popover, Transition } from '@headlessui/react'
+import React from "react";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from "./containers/Home";
-
-
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Marketplace', href: '#' },
-]
+import Metaverse from './containers/Metaverse'
 
 declare global {
     interface Window {
@@ -20,7 +15,13 @@ const App: React.FunctionComponent = () => {
 
   return (
      <div className="relative bg-white overflow-hidden">
-      <Home navigation={navigation}/>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/metaverse" element={<Metaverse/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
