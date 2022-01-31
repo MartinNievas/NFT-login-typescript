@@ -1,6 +1,5 @@
 import React from "react";
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Navigate, useRoutes} from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 import Home from "./containers/Home";
 import Metaverse from './containers/Metaverse'
 import NoMatch from './components/NoMatch'

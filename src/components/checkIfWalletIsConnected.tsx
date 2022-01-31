@@ -1,8 +1,9 @@
 import React, { FC, useState} from "react";
+import { useAuth } from "src/components/AuthProvider";
 
 
 const CheckIfWalletIsConnected = async (currentAccountProp:string):Promise<void> => {
-    const [currentAccount, setCurrentAccount] = useState("");
+    const { getConnectedWalletAddress, updateWalletAddress} = useAuth();
     try {
         const { ethereum } = window;
 
@@ -18,7 +19,7 @@ const CheckIfWalletIsConnected = async (currentAccountProp:string):Promise<void>
         if (accounts.length !== 0) {
             const account = accounts[0];
             console.log("Found an authorized account:", account);
-            setCurrentAccount(account)
+            //updateWalletAddress(account)
             currentAccountProp = account;
             //const token = await fakeAuth();
             //setToken(token);

@@ -1,5 +1,6 @@
-import React, { FC, Fragment, ReactNode, useState } from "react";
+import React, { Fragment } from "react";
 import { Popover, Transition } from '@headlessui/react'
+import { useAuth } from "src/components/AuthProvider";
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -8,6 +9,7 @@ const navigation = [
 
 
 const Metaverse: React.FC = (): JSX.Element => {
+  const { getConnectedWalletAddress } = useAuth();
   return (
     <>
      <div className="relative bg-white overflow-hidden">
